@@ -1,0 +1,414 @@
+/* StudySync AI - Modern Academic Productivity Platform Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ==========================================================================
+   Typography & Rendering
+   ========================================================================== */
+html, body, [class*="css"], .stApp {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: -0.01em;
+}
+
+code, pre {
+    font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ==========================================================================
+   Design Tokens & Color System
+   ========================================================================== */
+
+/* Dark Mode (Default) */
+.studysync-theme-dark {
+    --bg-base: #0b0f17;
+    --bg-surface: #111827;
+    --bg-card: #151f30;
+    --bg-card-hover: #1b283e;
+    --bg-muted: #1e293b;
+    --border-subtle: rgba(255, 255, 255, 0.09);
+    --border-card: rgba(255, 255, 255, 0.08);
+    --border-accent: #6366f1;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent: #6366f1;
+    --accent-light: rgba(99, 102, 241, 0.15);
+    --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.2);
+    --success-bg: rgba(16, 185, 129, 0.14);
+    --success-text: #34d399;
+    --warning-bg: rgba(245, 158, 11, 0.14);
+    --warning-text: #fbbf24;
+    --danger-bg: rgba(244, 63, 94, 0.14);
+    --danger-text: #fb7185;
+    --info-bg: rgba(59, 130, 246, 0.14);
+    --info-text: #60a5fa;
+}
+
+/* Light Mode */
+.studysync-theme-light {
+    --bg-base: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f1f5f9;
+    --bg-muted: #e2e8f0;
+    --border-subtle: #e2e8f0;
+    --border-card: #e2e8f0;
+    --border-accent: #4f46e5;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --accent: #4f46e5;
+    --accent-light: rgba(79, 70, 229, 0.1);
+    --card-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.08), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+    --success-bg: #ecfdf5;
+    --success-text: #059669;
+    --warning-bg: #fffbeb;
+    --warning-text: #d97706;
+    --danger-bg: #fff1f2;
+    --danger-text: #e11d48;
+    --info-bg: #eff6ff;
+    --info-text: #2563eb;
+}
+
+/* Background Application Styling */
+.stApp {
+    background-color: var(--bg-base) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Sidebar Customization */
+section[data-testid="stSidebar"] {
+    background-color: var(--bg-surface) !important;
+    border-right: 1px solid var(--border-subtle) !important;
+}
+
+/* Brand Header */
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 0 18px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 16px;
+}
+
+.brand-badge {
+    width: 36px;
+    height: 36px;
+    background-color: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+}
+
+.brand-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.brand-tagline {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+/* Section Labels in Sidebar */
+.sidebar-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 18px 0 8px 4px;
+}
+
+/* Page Link Styling in Sidebar */
+div[data-testid="stSidebar"] div[data-testid="stPageLink"] a {
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+}
+
+div[data-testid="stSidebar"] div[data-testid="stPageLink"] a:hover {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-subtle) !important;
+}
+
+div[data-testid="stSidebar"] div[data-testid="stPageLink"] a[aria-current="page"] {
+    background-color: var(--accent-light) !important;
+    color: var(--accent) !important;
+    font-weight: 600 !important;
+    border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Application Info Box */
+.app-info-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.app-info-title {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.app-info-desc {
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Page Headers */
+.page-header-container {
+    padding: 6px 0 20px 0;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+    letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Metric KPI Cards */
+.metric-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 105px;
+    transition: border-color 0.15s ease;
+}
+
+.metric-box:hover {
+    border-color: var(--accent);
+}
+
+.metric-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+}
+
+.metric-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+
+.metric-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* Cards & Containers */
+.sync-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 16px;
+}
+
+.sync-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 8px 0;
+}
+
+/* Activity & Deadline Items */
+.activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.activity-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.activity-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+}
+
+.badge-primary {
+    background-color: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.badge-success {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+}
+
+.badge-warning {
+    background-color: var(--warning-bg);
+    color: var(--warning-text);
+}
+
+.badge-danger {
+    background-color: var(--danger-bg);
+    color: var(--danger-text);
+}
+
+.badge-info {
+    background-color: var(--info-bg);
+    color: var(--info-text);
+}
+
+/* Flashcard Component */
+.flashcard-wrapper {
+    width: 100%;
+    margin: 16px 0;
+}
+
+.flashcard {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 12px;
+    padding: 32px 24px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+}
+
+.flashcard-side-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.flashcard-text {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Empty State Box */
+.empty-state {
+    text-align: center;
+    padding: 36px 20px;
+    background-color: var(--bg-card);
+    border: 1px dashed var(--border-subtle);
+    border-radius: 10px;
+    margin: 14px 0;
+}
+
+.empty-state-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 8px 0 4px 0;
+}
+
+.empty-state-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    max-width: 420px;
+    margin: 0 auto 12px auto;
+    line-height: 1.4;
+}
+
+/* Streamlit Button Restyling */
+div.stButton > button {
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    padding: 0.4rem 0.85rem !important;
+    border: 1px solid var(--border-subtle) !important;
+    transition: all 0.15s ease !important;
+}
+
+div.stButton > button:hover {
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+}
+
+div.stButton > button[kind="primary"] {
+    background-color: var(--accent) !important;
+    color: #ffffff !important;
+    border-color: var(--accent) !important;
+}
+
+/* Form Inputs */
+div[data-testid="stTextInput"] input,
+div[data-testid="stTextArea"] textarea,
+div[data-testid="stSelectbox"] select {
+    border-radius: 6px !important;
+    border: 1px solid var(--border-subtle) !important;
+}
